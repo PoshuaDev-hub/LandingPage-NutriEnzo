@@ -1,40 +1,31 @@
 /**
  * newsManager.js
- * 
- * Este módulo gestiona el carrusel de noticias, el panel administrativo dinámico
- * y todo el flujo de autenticación por burbuja para nutrición deportiva.
+ * Manejo del carrusel de noticias, el panel administrativo y login seguro.
  */
 
 import { newsService } from './newsService.js';
 
 export function initNewsManager() {
-  // Elementos de la interfaz del carrusel público
   const carousel = document.getElementById('news-carousel');
   const dotsContainer = document.getElementById('news-dots');
   const prevBtn = document.getElementById('news-prev');
   const nextBtn = document.getElementById('news-next');
   
-  // Elementos del Dashboard Administrativo
   const adminModal = document.getElementById('admin-modal');
   const adminClose = document.getElementById('admin-close');
   const newsForm = document.getElementById('news-form');
   const adminNewsList = document.getElementById('admin-news-list');
 
-  // Elementos de la Burbuja de Login Seguro (Acceso por Clave)
+  // Elementos de la Burbuja de Login
   const loginOverlay = document.getElementById('login-bubble-overlay');
   const loginPasswordInput = document.getElementById('login-password');
   const btnLoginSubmit = document.getElementById('login-bubble-submit');
   const btnLoginCancel = document.getElementById('login-bubble-close');
 
-  // Clave secreta obtenida de las variables de entorno de Vite (.env)
   const ADMIN_SECRET = import.meta.env.VITE_ADMIN_SECRET_KEY || 'NUTRI_ENZO_2024';
 
-  // ─── LÓGICA DE AUTENTICACIÓN ADMIN ───────────────────────────
+  // ─── ADMIN AUTH LOGIC ───────────────────────────────────────
 
-  /**
-   * Abre la burbuja central de login para el administrador.
-   * Se activa mediante el atajo de teclado Shift + N.
-   */
   function openLoginBubble() {
     loginOverlay.classList.add('active');
     loginPasswordInput.value = '';
@@ -42,29 +33,24 @@ export function initNewsManager() {
     document.body.style.overflow = 'hidden';
   }
 
-  /**
-   * Cierra la burbuja de login y restaura el scroll del sitio.
-   */
   function closeLoginBubble() {
     loginOverlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  // Validación de la clave ingresada en la burbuja
   if (btnLoginSubmit) {
     btnLoginSubmit.addEventListener('click', async () => {
       if (loginPasswordInput.value === ADMIN_SECRET) {
-        // Almacenamos el estado en sessionStorage para no pedir la clave en cada edición
         sessionStorage.setItem('admin_authenticated', 'true');
         await window.showCustomAlert('Clave Correcta', 'alert');
         closeLoginBubble();
-        toggleAdminModal(true); // Una vez validado, abrimos el Dashboard
+        toggleAdminModal(true);
       } else {
         await window.showCustomAlert('Credencial Incorrecta', 'alert');
       }
     });
 
-    // Accesibilidad: Permitir validación al presionar la tecla Enter
+    // Permitir Enter en el input de password
     loginPasswordInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') btnLoginSubmit.click();
     });
@@ -74,11 +60,7 @@ export function initNewsManager() {
     btnLoginCancel.addEventListener('click', closeLoginBubble);
   }
 
-  // ─── SISTEMA DE ALERTAS PERSONALIZADAS (BURBUJA MODAL) ───────
-  /**
-   * Reemplaza los alerts nativos del navegador por burbujas 
-   * integradas en el diseño del sitio.
-   */
+  // ─── CUSTOM ALERT SYSTEM ────────────────────────────────────
   const alertOverlay = document.getElementById('custom-alert');
   const alertMessage = document.getElementById('alert-message');
   const btnConfirm = document.getElementById('btn-alert-confirm');
@@ -103,28 +85,21 @@ export function initNewsManager() {
     });
   };
   
-  // Variables de control del estado del carrusel
   let currentIndex = 0;
   let autoPlayInterval;
-  const AUTO_PLAY_TIME = 60000; // Cambio automático cada 60 segundos
+  const AUTO_PLAY_TIME = 60000; 
 
-  // ─── LÓGICA DEL CARRUSEL DE NOTICIAS ──────────────────────────
+  // ─── CAROUSEL LOGIC ─────────────────────────────────────────
   
-  /**
-   * Obtiene las noticias de Supabase y las dibuja en el HTML.
-   * Maneja el renderizado de tarjetas y los puntos de navegación (dots).
-   */
   async function renderCarousel() {
     const news = await newsService.getAll();
     if (!carousel) return;
 
-    // Estado vacío: Si no hay noticias, mostramos un mensaje amigable
     if (news.length === 0) {
       carousel.innerHTML = '<p style="text-align:center; width:100%;">No hay noticias disponibles.</p>';
       return;
     }
 
-    // Renderizamos las tarjetas dinámicamente con sus fotos en ratio 3:4 (según CSS)
     carousel.innerHTML = news.map(item => `
       <div class="news-card">
         <img src="${item.image_url || 'https://images.unsplash.com/photo-1490645935967-10de6ba17061'}" alt="${item.title}" class="news-card__image">
@@ -140,7 +115,6 @@ export function initNewsManager() {
       </div>
     `).join('');
 
-    // Generamos los puntos de navegación inferiores
     dotsContainer.innerHTML = news.map((_, i) => `
       <div class="dot ${i === currentIndex ? 'active' : ''}" data-index="${i}"></div>
     `).join('');
@@ -148,10 +122,6 @@ export function initNewsManager() {
     updateCarousel(news.length);
   }
 
-  /**
-   * Aplica el desplazamiento físico (transform) al carrusel 
-   * según el índice actual de la noticia.
-   */
   function updateCarousel(count) {
     if (!count) return;
     if (currentIndex >= count) currentIndex = 0;
@@ -162,7 +132,6 @@ export function initNewsManager() {
     });
   }
 
-  // Navegación Manual (Siguiente / Anterior)
   async function nextSlide() {
     const news = await newsService.getAll();
     currentIndex++;
@@ -182,9 +151,8 @@ export function initNewsManager() {
     autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_TIME);
   }
 
-  // ─── LÓGICA DEL DASHBOARD ADMINISTRATIVO ────────────────────
+  // ─── ADMIN DASHBOARD LOGIC ───────────────────────────────────
 
-  // Referencias para la previsualización de imágenes al subir contenido
   const fileInput = document.getElementById('news-file');
   const urlInput = document.getElementById('news-image');
   const previewImg = document.getElementById('news-preview');
@@ -195,22 +163,20 @@ export function initNewsManager() {
     }
   }
 
-  // Manejo de carga de archivos locales (Subida a Supabase Storage)
   if (fileInput) {
     fileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = (event) => {
-          updatePreview(event.target.result); // Muestra la foto antes de subirla
-          if (urlInput) urlInput.value = ''; // Limpiamos URL externa si se usa archivo
+          updatePreview(event.target.result);
+          if (urlInput) urlInput.value = '';
         };
         reader.readAsDataURL(file);
       }
     });
   }
 
-  // Manejo de enlaces externos de imagen
   if (urlInput) {
     urlInput.addEventListener('input', (e) => {
       updatePreview(e.target.value);
@@ -218,10 +184,6 @@ export function initNewsManager() {
     });
   }
 
-  /**
-   * Muestra u oculta el modal principal del Dashboard.
-   * Se encarga de resetear formularios y cargar la lista fresca de noticias.
-   */
   function toggleAdminModal(show) {
     if (show) {
       adminModal.classList.add('active');
@@ -237,10 +199,6 @@ export function initNewsManager() {
     }
   }
 
-  /**
-   * Genera la lista de gestión de noticias (con botones de borrar y editar)
-   * que se ve dentro del Dashboard administrativo.
-   */
   async function renderAdminList() {
     const news = await newsService.getAll();
     adminNewsList.innerHTML = news.map(item => `
@@ -256,7 +214,6 @@ export function initNewsManager() {
       </div>
     `).join('');
 
-    // Eventos para editar y borrar cada elemento de la lista
     adminNewsList.querySelectorAll('.action-btn--edit').forEach(btn => {
       btn.addEventListener('click', () => editNews(btn.dataset.id));
     });
@@ -265,51 +222,40 @@ export function initNewsManager() {
     });
   }
 
-  /**
-   * Carga los datos de una noticia en el formulario para su edición.
-   */
   async function editNews(id) {
     const news = await newsService.getAll();
     const item = news.find(n => n.id === id);
     if (!item) return;
-
-    // Cambiamos a la pestaña de "Nueva Noticia" para cargar el formulario
     document.querySelector('[data-tab="tab-new"]').click();
-
     document.getElementById('news-id').value = item.id;
     document.getElementById('news-title').value = item.title;
     document.getElementById('news-category').value = item.category;
     document.getElementById('news-image').value = item.image_url;
     document.getElementById('news-content').value = item.content;
-    
     updatePreview(item.image_url);
     document.getElementById('save-news').textContent = 'ACTUALIZAR PUBLICACIÓN';
   }
 
-  /**
-   * Elimina una noticia tras la confirmación exitosa por parte del usuario.
-   */
   async function deleteNews(id) {
     const confirmed = await window.showCustomAlert('¿Estás seguro de eliminar esta publicación?', 'confirm');
     if (confirmed) {
       await newsService.delete(id);
       await renderAdminList();
-      await renderCarousel(); // Refrescamos el carrusel público
+      await renderCarousel();
     }
   }
 
-  // ─── GESTION DE EVENTOS GLOBALES ─────────────────────────────
+  // ─── EVENTOS ──────────────────────────────────────────────────
 
-  // Atajo Secreto: Shift + N para abrir el Admin Panel (Pedirá clave)
   window.addEventListener('keydown', (e) => {
     const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
     if (!isTyping && e.shiftKey && e.key.toLowerCase() === 'n') {
       e.preventDefault();
       const isAuth = sessionStorage.getItem('admin_authenticated') === 'true';
       if (isAuth) {
-        toggleAdminModal(true); // Si ya se autenticó antes, abre el Dashboard directamente
+        toggleAdminModal(true);
       } else {
-        openLoginBubble(); // Si no, abre la burbuja de clave
+        openLoginBubble();
       }
     }
   });
@@ -318,7 +264,6 @@ export function initNewsManager() {
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-  // Navegación por puntos (dots)
   if (dotsContainer) {
     dotsContainer.addEventListener('click', (e) => {
       if (e.target.classList.contains('dot')) {
@@ -329,10 +274,6 @@ export function initNewsManager() {
     });
   }
 
-  /**
-   * Captura el envío del formulario de noticias.
-   * Envía los datos y la imagen (si la hay) al servicio de Supabase.
-   */
   if (newsForm) {
     newsForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -345,18 +286,14 @@ export function initNewsManager() {
         image: document.getElementById('news-image').value || previewImg.src,
         content: document.getElementById('news-content').value
       };
-
       await newsService.save(newsItem, file);
-      
       const successMsg = id ? 'Noticia actualizada con éxito' : 'Noticia creada con éxito';
       await window.showCustomAlert(successMsg, 'alert');
-      
       toggleAdminModal(false);
       renderCarousel();
     });
   }
 
-  // Gestión de pestañas (Tabs) dentro del modal administrativo
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -366,7 +303,7 @@ export function initNewsManager() {
     });
   });
 
-  // Inicialización del carrusel y el autoplay automático
+  // Inicialización
   renderCarousel();
   resetAutoPlay();
 }

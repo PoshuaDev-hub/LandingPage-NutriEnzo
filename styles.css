@@ -1,11 +1,11 @@
 /* ══════════════════════════════════════════════════════════════
-   SISTEMA DE DISEÑO: El Laboratorio de Rendimiento Kinético
+   SISTEMA DE DISEÑO: The Kinetic Performance Lab
    Enzo Escobar — Nutrición de Élite
    ══════════════════════════════════════════════════════════════ */
 
-/* ─── TOKENS DE DISEÑO ─────────────────────────────────────────── */
+/* ─── TOKENS DE DISEÑO ───────────────────────────────────────── */
 :root {
-  /* Colors */
+  /* Colores */
   --bg: #0a0a0a;
   --surface-low: #0f0f0f;
   --surface: #151515;
@@ -15,7 +15,7 @@
   --primary-lime: #cafd00;
   --primary-lime-dim: rgba(202, 253, 0, 0.15);
   --primary-lime-bg: #e2ff8d;
-  /* A bit softer for big box */
+  /* Un poco más suave para bloques grandes */
 
   --cta-purple: #e575ff;
   --cta-purple-dark: #8e44ad;
@@ -25,11 +25,11 @@
   --on-surface-variant: #b0adac;
   --outline: rgba(255, 255, 255, 0.08);
 
-  /* Fonts */
+  /* Fuentes */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Spacing */
+  /* Espaciado */
   --space-unit: 1rem;
   --space-2: calc(var(--space-unit) * 0.5);
   --space-4: var(--space-unit);
@@ -39,18 +39,18 @@
   --space-16: calc(var(--space-unit) * 4);
   --space-24: calc(var(--space-unit) * 6);
 
-  /* Radius */
+  /* Radio de bordes */
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Transitions */
+  /* Transiciones */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* ─── RESET Y ESTILOS BASE ───────────────────────────────────────── */
+/* ─── RESETEO Y BASE ────────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -116,7 +116,7 @@ button {
   font-weight: 800;
 }
 
-/* ─── BOTONES Y CTAS ─────────────────────────────────────────── */
+/* ─── BOTONES ───────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -148,7 +148,7 @@ button {
   width: 100%;
 }
 
-/* ─── NAVEGACIÓN (NAVBAR) ─────────────────────────────────────── */
+/* ─── NAVEGACIÓN ────────────────────────────────────────────── */
 .nav {
   position: fixed;
   top: 0;
@@ -156,9 +156,9 @@ button {
   width: 100%;
   z-index: 1000;
   padding: 1rem 0;
-  /* Slightly more breathable initially */
+  /* Ligeramente más aireado inicialmente */
   background: rgba(10, 10, 10, 0.1);
-  /* Very subtle background initially */
+  /* Fondo muy sutil inicialmente */
   backdrop-filter: blur(5px);
   border-bottom: 1px solid transparent;
   transition: all 0.4s ease-in-out;
@@ -178,7 +178,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Centering groups */
+  /* Centrado de grupos */
 }
 
 .nav__wrapper {
@@ -186,7 +186,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: clamp(1rem, 4vw, 3rem);
-  /* Responsive gap */
+  /* Espacio responsivo */
   width: 100%;
 }
 
@@ -206,7 +206,7 @@ button {
 .nav__link {
   font-family: var(--font-display);
   font-size: clamp(0.7rem, 1.5vw, 0.8125rem);
-  /* Responsive font size */
+  /* Tamaño de fuente responsivo */
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--on-surface-variant);
@@ -220,7 +220,7 @@ button {
 .nav__social {
   display: flex;
   gap: var(--space-6);
-  /* More gap */
+  /* Más espacio */
   padding-left: var(--space-6);
 }
 
@@ -248,7 +248,7 @@ button {
 
 .nav__toggle {
   display: none;
-  background: rgba(10, 10, 10, 0.7); /* Deep Glass */
+  background: rgba(10, 10, 10, 0.7); /* Cristal profundo */
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08); /* Borde sutil de luz */
   border-radius: 99px;
@@ -320,7 +320,7 @@ button {
 
   .nav__container {
     justify-content: flex-end;
-    /* Toggle on the right on mobile */
+    /* Toggle a la derecha en móvil */
   }
 
   .footer__container {
@@ -329,7 +329,7 @@ button {
   }
 }
 
-/* ─── SECCIÓN HERO (PORTADA) ──────────────────────────────────── */
+/* ─── HERO ──────────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -383,23 +383,23 @@ button {
   justify-content: flex-end;
   position: relative;
   align-self: flex-start;
-  /* Move it up */
+  /* Mover hacia arriba */
   margin-top: -2rem;
-  /* Pull it towards the header slightly */
+  /* Atraer hacia la cabecera ligeramente */
 }
 
 .hero__image-wrapper {
   position: relative;
   width: 100%;
   max-width: 500px;
-  /* Removed border-radius and bubble styles */
+  /* Se eliminaron border-radius y estilos de burbuja */
 }
 
 .hero__image {
   width: 100%;
   height: auto;
   display: block;
-  /* Masking for natural integration instead of border-radius */
+  /* Máscara para integración natural en lugar de border-radius */
   -webkit-mask-image: linear-gradient(to top, transparent 5%, black 25%, black 85%, transparent 100%),
     linear-gradient(to left, transparent 0%, black 15%);
   mask-image: linear-gradient(to top, transparent 5%, black 25%, black 85%, transparent 100%),
@@ -408,7 +408,7 @@ button {
   mask-composite: intersect;
 }
 
-/* Removed hover scale for a more static, premium feel */
+/* Se eliminó el escalado al hover para una sensación más estática y premium */
 
 .hero__image-fade {
   position: absolute;
@@ -416,7 +416,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Extra atmospheric glow if needed, but mask handles most of it */
+  /* Brillo atmosférico extra, aunque la máscara ya lo maneja bien */
   pointer-events: none;
 }
 
@@ -436,7 +436,7 @@ button {
 .hero__title {
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5.5rem);
-  /* Substantially reduced */
+  /* Reducido sustancialmente */
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.04em;
@@ -463,7 +463,7 @@ button {
   margin-bottom: var(--space-12);
 }
 
-/* Hero Mini Testimonials */
+/* Mini Testimonios de Hero */
 .hero__testimonials-mini {
   display: flex;
   gap: var(--space-8);
@@ -498,7 +498,7 @@ button {
   text-transform: uppercase;
 }
 
-/* ─── AUTHORITY CLÍNICA ─────────────────────────────────────── */
+/* ─── AUTORIDAD CLÍNICA ─────────────────────────────────────── */
 .authority {
   padding: var(--space-24) 0;
 }
@@ -561,15 +561,15 @@ button {
   line-height: 1.5;
 }
 
-/* ─── STATS SECTION ─────────────────────────────────────────── */
+/* ─── SECCIÓN DE ESTADÍSTICAS ───────────────────────────────── */
 .stats {
   padding: var(--space-24) 0;
-  /* Even more breathing room */
+  /* Más espacio para respirar */
   background: var(--bg);
   position: relative;
 }
 
-/* Elegant fade-in from Hero */
+/* Fundido elegante desde Hero */
 .stats::before {
   content: '';
   position: absolute;
@@ -583,7 +583,7 @@ button {
 
 .stats__container {
   max-width: 1100px;
-  /* More compact */
+  /* Más compacto */
   margin: 0 auto;
   padding: 0 var(--space-8);
 }
@@ -738,7 +738,7 @@ button {
 
 .new.stat-box__number {
   font-family: var(--font-display);
-  font-size: 3.5rem; /* Base size */
+  font-size: 3.5rem; /* Tamaño base */
   font-weight: 800;
   line-height: 1;
   color: #fff;
@@ -752,7 +752,7 @@ button {
   text-shadow: 0 0 30px rgba(182, 255, 0, 0.2);
 }
 
-/* ─── CTA BANNER ────────────────────────────────────────────── */
+/* ─── BANNER DE ACCIÓN (CTA) ────────────────────────────────── */
 .cta-banner {
   position: relative;
   padding: var(--space-24) 0;
@@ -821,7 +821,7 @@ button {
   margin-right: 0.5rem;
 }
 
-/* ─── CONTACT SECTION ───────────────────────────────────────── */
+/* ─── SECCIÓN DE CONTACTO ───────────────────────────────────── */
 .contact {
   padding: var(--space-32) 0;
   text-align: center;
@@ -900,7 +900,7 @@ button {
   font-style: italic;
 }
 
-/* ─── PIE DE PÁGINA (FOOTER) ──────────────────────────────────── */
+/* ─── PIE DE PÁGINA (FOOTER) ────────────────────────────────── */
 .footer {
   padding: var(--space-16) 0 var(--space-2);
   background: #050505;
@@ -999,7 +999,7 @@ button {
   opacity: 0.6;
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────── */
+/* ─── DISEÑO RESPONSIVO (ADAPTACIONES) ───────────────────────── */
 @media (max-width: 1200px) {
   .hero__container {
     grid-template-columns: 1fr;
@@ -1140,7 +1140,7 @@ button {
   }
 }
 
-/* ─── BOOKING MODAL (GLASS) ─────────────────────────────────── */
+/* ─── MODAL DE AGENDAMIENTO (CRISTAL) ────────────────────────── */
 .booking-modal {
   position: fixed;
   top: 0;
@@ -1329,7 +1329,7 @@ button {
   }
 }
 
-/* Mobile Menu Logic */
+/* Lógica del Menú Móvil */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -1387,7 +1387,7 @@ button {
   margin-bottom: 3rem;
 }
 
-/* Reveal Animation */
+/* Animación de Revelación */
 .reveal-up {
   opacity: 0;
   transform: translateY(30px);
@@ -1399,7 +1399,7 @@ button {
   transform: translateY(0);
 }
 
-/* ─── NEWSLETTER SECTION ───────────────────────────────────── */
+/* ─── SECCIÓN DE NOVEDADES (NEWSLETTER) ─────────────────────── */
 .newsletter {
   padding: var(--space-24) 0;
   background: var(--surface-low);
@@ -1440,7 +1440,7 @@ button {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   min-height: 320px;
-  /* Reduced from 400px */
+  /* Reducido desde 400px */
   border: 1px solid var(--outline);
   transition: transform 0.3s var(--ease);
 }
@@ -1455,7 +1455,7 @@ button {
 
 .news-card__content {
   padding: var(--space-8);
-  /* Reduced from 12 */
+  /* Reducido desde 12 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1464,19 +1464,15 @@ button {
 .news-card__category {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 0.65rem;
-  /* Slightly smaller */
-  font-weight: 700;
-  letter-spacing: 0.12em;
   color: var(--primary-lime);
   margin-bottom: var(--space-2);
   text-transform: uppercase;
-}
+} /* Ligeramente más pequeño */
 
 .news-card__title {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  /* Reduced from 2rem */
+  /* Reducido desde 2rem */
   font-weight: 700;
   margin-bottom: var(--space-2);
   line-height: 1.2;
@@ -1485,7 +1481,7 @@ button {
 .news-card__text {
   color: var(--on-surface-variant);
   font-size: 0.9375rem;
-  /* Slightly smaller */
+  /* Ligeramente más pequeño */
   margin-bottom: var(--space-6);
   line-height: 1.5;
   display: -webkit-box;
@@ -1504,7 +1500,7 @@ button {
   opacity: 0.6;
 }
 
-/* Controls */
+/* Controles */
 .newsletter__controls {
   position: absolute;
   top: 50%;
@@ -1560,7 +1556,7 @@ button {
   border-radius: 4px;
 }
 
-/* ─── ADMIN MODAL (PREMIUM REDESIGN) ────────────────────────── */
+/* ─── MODAL DE ADMINISTRACIÓN (REDISEÑO PREMIUM) ─────────────── */
 .admin-modal {
   position: fixed;
   top: 0;
@@ -1716,7 +1712,7 @@ button {
   border-radius: 8px;
 }
 
-/* Custom Select */
+/* Selector Personalizado */
 .custom-select-wrapper {
   position: relative;
 }
@@ -1742,7 +1738,7 @@ button {
   color: #fff;
 }
 
-/* Estilos para las opciones del desplegable (Fix visibilidad) */
+/* Estilos para las opciones del desplegable (Corrección de visibilidad) */
 .admin-form select option {
   background-color: #121212; /* Fondo oscuro sólido */
   color: #fff; /* Texto blanco */
@@ -1757,7 +1753,7 @@ button {
   scrollbar-color: var(--primary-lime) rgba(0, 0, 0, 0.1);
 }
 
-/* Tabs as Segmented Control */
+/* Pestañas como Control Segmentado */
 .admin-tabs {
   display: flex;
   background: rgba(0, 0, 0, 0.2);
@@ -1793,7 +1789,7 @@ button {
   display: none;
 }
 
-/* Modern Form Groups */
+/* Grupos de Formulario Modernos */
 .form__group {
   margin-bottom: 1.75rem;
 }
@@ -1856,7 +1852,7 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* News List Refined */
+/* Lista de Noticias Refinada */
 .admin-news-list {
   display: flex;
   flex-direction: column;
@@ -1947,7 +1943,7 @@ button {
 }
 
 
-/* ─── CUSTOM ALERTS (BUBBLE MODAL) ─────────────────────────── */
+/* ─── ALERTAS PERSONALIZADAS (MODAL BURBUJA) ────────────────── */
 .custom-alert-overlay {
   position: fixed;
   top: 0;
@@ -2047,10 +2043,10 @@ button {
   }
 }
 
-/* ─── OPTIMIZACIÓN RESPONSIVA (MAESTRO) ────────────────────────── */
+/* ─── OPTIMIZACIÓN RESPONSIVA (MAESTRA) ─────────────────────── */
 
 @media (max-width: 600px) {
-  /* Dashboard Mobile */
+  /* Dashboard Móvil */
   .admin-modal__content {
     max-width: 95%;
     border-radius: 20px;
@@ -2081,7 +2077,7 @@ button {
     font-size: 0.65rem;
   }
 
-  /* Zona de Imagen Stacked */
+  /* Zona de Imagen Apilada */
   .news-image-zone {
     grid-template-columns: 1fr; /* Una sola columna */
     justify-items: center;
@@ -2106,7 +2102,7 @@ button {
     font-size: 0.9rem;
   }
 
-  /* Ajuste Novedades Mobile */
+  /* Ajuste Novedades Móvil */
   .newsletter {
     padding-top: var(--space-8); /* Subir sección */
   }
@@ -2155,7 +2151,7 @@ button {
     color: #000;
   }
 
-  /* Alertas Bubble Mobile */
+  /* Alertas Burbuja Móvil */
   .custom-alert-bubble {
     max-width: 95%;
     border-radius: 25px;
@@ -2203,7 +2199,7 @@ button {
   }
 }
 
-/* ─── BURBUJA DE LOGIN (NÚCLEO MODAL) ───────────────────────── */
+/* ─── BURBUJA DE ACCESO (MODAL CORE) ───────────────────────── */
 .login-bubble-overlay {
   position: fixed;
   top: 0;
@@ -2320,7 +2316,7 @@ button {
   filter: brightness(1.1);
 }
 
-/* Fix Aspect Ratio 3:4 News Card */
+/* Corrección de Relación de Aspecto 3:4 Tarjeta de Noticias */
 .news-card {
   display: flex !important;
   flex-direction: row !important;

@@ -1,9 +1,9 @@
 /* ══════════════════════════════════════════════════════════════
-   DESIGN SYSTEM: The Kinetic Performance Lab
+   SISTEMA DE DISEÑO: El Laboratorio de Rendimiento Kinético
    Enzo Escobar — Nutrición de Élite
    ══════════════════════════════════════════════════════════════ */
 
-/* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+/* ─── TOKENS DE DISEÑO ─────────────────────────────────────────── */
 :root {
   /* Colors */
   --bg: #0a0a0a;
@@ -50,7 +50,7 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* ─── RESET & BASE ──────────────────────────────────────────── */
+/* ─── RESET Y ESTILOS BASE ───────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -86,7 +86,7 @@ button {
   font-family: inherit;
 }
 
-/* ─── TYPOGRAPHY ────────────────────────────────────────────── */
+/* ─── TIPOGRAFÍA ────────────────────────────────────────────── */
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -116,7 +116,7 @@ button {
   font-weight: 800;
 }
 
-/* ─── BUTTONS ───────────────────────────────────────────────── */
+/* ─── BOTONES Y CTAS ─────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -148,7 +148,7 @@ button {
   width: 100%;
 }
 
-/* ─── NAVIGATION ────────────────────────────────────────────── */
+/* ─── NAVEGACIÓN (NAVBAR) ─────────────────────────────────────── */
 .nav {
   position: fixed;
   top: 0;
@@ -329,7 +329,7 @@ button {
   }
 }
 
-/* ─── HERO ──────────────────────────────────────────────────── */
+/* ─── SECCIÓN HERO (PORTADA) ──────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -900,7 +900,7 @@ button {
   font-style: italic;
 }
 
-/* ─── FOOTER ────────────────────────────────────────────────── */
+/* ─── PIE DE PÁGINA (FOOTER) ──────────────────────────────────── */
 .footer {
   padding: var(--space-16) 0 var(--space-2);
   background: #050505;
@@ -2047,7 +2047,7 @@ button {
   }
 }
 
-/* ─── OPTIMIZACIÓN RESPONSIVA (MASTER) ─────────────────────── */
+/* ─── OPTIMIZACIÓN RESPONSIVA (MAESTRO) ────────────────────────── */
 
 @media (max-width: 600px) {
   /* Dashboard Mobile */
@@ -2203,7 +2203,7 @@ button {
   }
 }
 
-/* ─── LOGIN BUBBLE (MODAL CORE) ───────────────────────────── */
+/* ─── BURBUJA DE LOGIN (NÚCLEO MODAL) ───────────────────────── */
 .login-bubble-overlay {
   position: fixed;
   top: 0;

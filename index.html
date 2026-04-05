@@ -7,33 +7,31 @@
   <meta name="description" content="Enzo Escobar — Nutricionista deportivo de alto rendimiento">
   <title>Enzo Escobar | Nutrición de Élite</title>
 
-  <!-- Fonts -->
+  <!-- Fuentes Tipográficas: Space Grotesk para títulos y Inter para cuerpo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
-  <!-- Font Awesome for Social Icons -->
+  <!-- Font Awesome: Iconografía técnica y de redes sociales -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Styles -->
+  <!-- Estilos Maestros -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- NAVIGATION                                  -->
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- NAVIGATION                                  -->
+  <!-- NAVEGACIÓN SUPERIOR (NAVBAR)                -->
   <!-- ═══════════════════════════════════════════ -->
   <nav class="nav" id="nav">
     <div class="nav__container">
-      <!-- Logo eliminado por solicitud del usuario para un look más limpio -->
+      <!-- El logo se mantiene oculto para una estética minimalista -->
 
       <div class="nav__wrapper">
+        <!-- Enlaces principales del sitio -->
         <ul class="nav__links" id="nav-links">
           <li><a href="#hero" class="nav__link">SOBRE MÍ</a></li>
           <li><a href="#about" class="nav__link">TRAYECTORIA</a></li>
@@ -41,6 +39,7 @@
           <li><a href="#newsletter" class="nav__link">NOVEDADES</a></li>
         </ul>
 
+        <!-- Redes sociales secundarias -->
         <div class="nav__social">
           <a href="https://www.instagram.com/nutri.enzoescobarg/" class="nav__social-link" target="_blank"
             aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -48,8 +47,10 @@
             aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
 
+        <!-- Botón de Conversión Principal -->
         <a href="#contact" class="btn btn--cta nav__cta" id="nav-cta">AGENDAR HORA</a>
 
+        <!-- Gatillo para Menú Móvil (Hamburguesa personalizada) -->
         <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú">
           <span class="toggle-text">ACCESO RÁPIDO</span>
           <i class="fas fa-bars"></i>
@@ -58,7 +59,7 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- Menú Lateral Móvil (Overlay) -->
   <div class="mobile-menu" id="mobile-menu">
     <button class="mobile-menu__close" id="mobile-close" aria-label="Cerrar menú">
       <i class="fas fa-times"></i>
@@ -77,7 +78,7 @@
   </div>
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- HERO                                        -->
+  <!-- SECCIÓN HERO (PORTADA)                      -->
   <!-- ═══════════════════════════════════════════ -->
   <section class="hero" id="hero">
     <div class="hero__bg-img" style="background-image: url('assets/images/hero-bg.png')"></div>
@@ -98,208 +99,140 @@
           aplicados en el alto rendimiento.
         </p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn--cta" id="hero-cta">
-            AGENDAR HORA
-          </a>
-        </div>
-
-      </div>
-
-      <div class="hero__visual reveal-up" style="--delay: 0.3s">
-        <div class="hero__image-wrapper">
-          <img src="assets/images/Perfil_Nutri_Enzo.jpg" alt="Enzo Escobar Nutricionista" class="hero__image">
-          <div class="hero__image-fade"></div>
+          <a href="#contact" class="btn btn--secondary btn--lg">AGENDAR HORA</a>
+          <a href="#newsletter" class="btn btn--outline btn--lg">LEER NOVEDADES</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- STATS OVERHAUL                              -->
+  <!-- ESTADÍSTICAS Y AUTORIDAD                    -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="stats" id="results">
-    <div class="stats__container">
-      <div class="stats__grid">
+  <section class="authority">
+    <div class="container container--narrow section-padding">
+      <div class="authority__grid">
+        <!-- Item 1: Experiencia -->
+        <div class="authority__item reveal-up">
+          <div class="authority__number-wrapper">
+            <span class="authority__number" data-target="9">0</span>
+            <span class="authority__plus">+</span>
+          </div>
+          <p class="authority__label">Años de experiencia clínica</p>
+        </div>
+        <!-- Item 2: Pacientes -->
+        <div class="authority__item reveal-up" style="transition-delay: 0.1s;">
+          <div class="authority__number-wrapper">
+            <span class="authority__number" data-target="1500">0</span>
+          </div>
+          <p class="authority__label">Planes nutricionales exitosos</p>
+        </div>
+        <!-- Item 3: Certificación -->
+        <div class="authority__item reveal-up" style="transition-delay: 0.2s;">
+          <div class="authority__badge-wrapper">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <p class="authority__label">Nutricionista UDD Certificado</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Big Stat: Pacientes -->
-        <div class="stat-box stat-box--big reveal-up">
-          <div class="stat-box__icon-bg"><i class="fas fa-chart-line"></i></div>
-          <div class="stat-box__content">
-            <span class="stat-box__number">+<span data-target="2000">2000</span></span>
-            <h3 class="stat-box__title">PACIENTES ATENDIDOS</h3>
-            <p class="stat-box__desc">Transformando las metas en diversos contextos, desde deportistas profesionales
-              hasta personas que buscan mejorar su salud diaria.</p>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TRAYECTORIA Y FILOSOFÍA                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about section-padding" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__image-container reveal-up">
+          <img src="assets/images/about-me.png" alt="Enzo Escobar Nutrición" class="about__img">
+          <!-- Decoración visual kinética -->
+          <div class="about__experience-card">
+            <span class="about__experience-years">4.0</span>
+            <span class="about__experience-text">AÑOS EN CLUB U. DE CHILE</span>
           </div>
         </div>
-
-        <!-- Highlight Stat: Satisfacción -->
-        <div class="stat-box stat-box--lime reveal-up" style="--delay: 0.1s">
-          <div class="stat-box__header">
-            <div class="stat-box__icon-wrapper">
-              <i class="fas fa-medal"></i>
+        <div class="about__content reveal-up">
+          <span class="section-tag">EL ESPECIALISTA</span>
+          <h2 class="section-title">ESTRATEGIA <br><span class="accent-color">SIN FRONTERAS</span></h2>
+          <p class="section-subtitle">
+            Mi enfoque combina la fisiología deportiva avanzada con estrategias prácticas para atletas que no se
+            conforman con lo ordinario.
+          </p>
+          <div class="about__features">
+            <div class="feature-item">
+              <i class="fas fa-bolt"></i>
+              <div>
+                <h4>Rendimiento Máximo</h4>
+                <p>Optimización metabólica para atletas de resistencia y combate.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-heartbeat"></i>
+              <div>
+                <h4>Salud Integrativa</h4>
+                <p>Equilibrio total: mente, cuerpo y rendimiento sostenido en el tiempo.</p>
+              </div>
             </div>
           </div>
-          <div class="stat-box__content">
-            <span class="stat-box__number"><span data-target="90">90</span>%</span>
-            <h3 class="stat-box__title">EN NIVEL DE SATISFACCIÓN</h3>
-          </div>
         </div>
-
-        <!-- Small Stat: Rendimiento -->
-        <div class="stat-box stat-box--small reveal-up" style="--delay: 0.2s">
-          <div class="stat-box__icon-wrapper icon--purple">
-            <i class="fas fa-fire-alt"></i>
-          </div>
-          <h3 class="stat-box__title">MEJORA EN RENDIMIENTO</h3>
-          <p class="stat-box__desc">DEPORTIVO COMPROBADO</p>
-        </div>
-
-        <!-- Small Stat: Activos -->
-        <div class="stat-box stat-box--small reveal-up" style="--delay: 0.3s">
-          <div class="stat-box__icon-wrapper icon--blue">
-            <i class="fas fa-user-check"></i>
-          </div>
-          <span class="stat-box__number-small"><span data-target="500">500</span>+</span>
-          <h3 class="stat-box__title">PACIENTES ACTIVOS</h3>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- NEWSLETTER / NOVEDADES                      -->
+  <!-- NOVEDADES Y NOTICIAS (DINÁMICO)             -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="newsletter reveal-up" id="newsletter">
-    <div class="newsletter__container">
-      <div class="newsletter__header">
-        <h2 class="section-title">Últimas <span class="accent-lime">NOVEDADES</span></h2>
-        <p class="section-subtitle">Mantente al tanto de los últimos tips de rendimiento y noticias de la clínica.</p>
+  <section class="newsletter section-padding" id="newsletter">
+    <div class="container--wide">
+      <div class="newsletter__header reveal-up">
+        <div>
+          <span class="section-tag">NOVEDADES</span>
+          <h2 class="section-title">NOTICIAS Y <br><span class="accent-color">RENDIMIENTO</span></h2>
+        </div>
+        <div class="newsletter__controls">
+          <button class="carousel-btn" id="news-prev" aria-label="Anterior"><i class="fas fa-arrow-left"></i></button>
+          <button class="carousel-btn" id="news-next" aria-label="Siguiente"><i class="fas fa-arrow-right"></i></button>
+        </div>
       </div>
 
-      <div class="newsletter__carousel-wrapper">
+      <!-- El carrusel se inyecta dinámicamente desde newsManager.js -->
+      <div class="newsletter__track">
         <div class="newsletter__carousel" id="news-carousel">
-          <!-- Las noticias se cargarán dinámicamente -->
-        </div>
-
-        <div class="newsletter__controls">
-          <button class="carousel-btn prev" id="news-prev" aria-label="Anterior"><i
-              class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next" id="news-next" aria-label="Siguiente"><i
-              class="fas fa-chevron-right"></i></button>
+          <!-- Las tarjetas aparecerán aquí -->
         </div>
 
         <div class="newsletter__dots" id="news-dots">
-          <!-- Los puntos se cargarán dinámicamente -->
+          <!-- Los puntos de navegación aparecerán aquí -->
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- AUTORIDAD CLÍNICA                           -->
+  <!-- FOOTER Y AGENDAMIENTO                       -->
   <!-- ═══════════════════════════════════════════ -->
-  <section class="authority" id="about">
-    <div class="authority__container">
-      <div class="authority__header reveal-up">
-        <h2 class="section-title">Formación <span class="accent-lime">CLÍNICA</span></h2>
-        <p class="section-subtitle">Formación rigurosa y certificaciones para garantizar resultados con base científica.
-        </p>
-      </div>
-
-      <div class="authority__grid">
-        <div class="authority-card reveal-up" style="--delay: 0s">
-          <div class="authority-card__icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3 class="authority-card__title">Docente Universitario</h3>
-          <p class="authority-card__desc">Formando a las nuevas generaciones de nutricionistas </p>
+  <footer class="footer section-padding" id="contact">
+    <div class="container footer__container">
+      <div class="footer__main">
+        <div class="footer__brand">
+          <h2 class="footer__logo">ENZO ESCOBAR</h2>
+          <p class="footer__desc">Llevando la nutrición deportiva al siguiente nivel de precisión y resultados.</p>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/nutri.enzoescobarg/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@nutri.enzoescobarg" target="_blank"><i class="fab fa-tiktok"></i></a>
+          </div>
         </div>
-        <div class="authority-card reveal-up" style="--delay: 0.1s">
-          <div class="authority-card__icon"><i class="fas fa-certificate"></i></div>
-          <h3 class="authority-card__title">Certificación ISAK I y II</h3>
-          <p class="authority-card__desc">Estándar internacional de cineantropometría para medir con exactitud la
-            composición corporal.</p>
-        </div>
-        <div class="authority-card reveal-up" style="--delay: 0.2s">
-          <div class="authority-card__icon"><i class="fas fa-microscope"></i></div>
-          <h3 class="authority-card__title">Postgrado Nutrición Deportiva</h3>
-          <p class="authority-card__desc">Especialización avanzada en fisiología del ejercicio y suplementación para
-            alto rendimiento.</p>
-        </div>
-        <div class="authority-card reveal-up" style="--delay: 0.3s">
-          <div class="authority-card__icon"><i class="fas fa-stethoscope"></i></div>
-          <h3 class="authority-card__title">Nutricionista UDD</h3>
-          <h3 class="authority-card__subtitle">Universidad del Desarrollo</h3>
-          <p class="authority-card__desc">Base académica de excelencia con enfoque en nutrición clínica y deportiva
-            personalizada.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- CTA BANNER                                  -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section class="cta-banner reveal-up">
-    <div class="cta-banner__bg" style="background-image: url('assets/images/meal-prep.png')"></div>
-    <div class="cta-banner__overlay"></div>
-    <div class="cta-banner__container">
-      <h2 class="cta-banner__title">¡LISTO PARA LLEGAR A TU <span class="accent-lime">MEJOR PERFORMANCE!</span></h2>
-      <p class="cta-banner__subtitle">Deja de adivinar. Optimiza tu nutrición con precisión clínica y planes
-        personalizados que se adaptan a tu ritmo de vida.</p>
-      <div class="cta-banner__actions">
-        <a href="#contact" class="btn btn--cta">AGENDAR HORA</a>
-        <div class="cta-banner__badge">
-          <i class="fas fa-check-circle"></i> CONSULTAS PRESENCIAL Y ONLINE
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- CONTACT FORM                                -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section class="contact" id="contact">
-    <div class="contact__container">
-      <div class="contact__minimal reveal-up">
-        <h2 class="section-title">¡CONECTEMOS <span class="accent-purple">AHORA!</span></h2>
-        <p class="section-subtitle">Sígueme en redes para tips de nutrición de élite o agenda tu consulta
-          directa.</p>
-
-        <div class="social-hero">
-          <a href="https://www.instagram.com/nutri.enzoescobarg/" target="_blank"
-            class="social-hero__item social-hero--ig" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.tiktok.com/@nutri.enzoescobarg" target="_blank" class="social-hero__item social-hero--tt"
-            aria-label="TikTok">
-            <i class="fab fa-tiktok"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- FOOTER                                      -->
-  <!-- ═══════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__brand">
-        <a href="#" class="footer__logo">
-          ENZO <span class="bold">ESCOBAR</span>
-        </a>
-        <p class="footer__tagline">Nutricionista especializado en optimizar el rendimiento humano a través de la ciencia
-          de la alimentación.</p>
-      </div>
-
-      <div class="footer__nav">
-        <div class="footer__col">
-          <h4 class="footer__title">ACCESO RÁPIDO</h4>
-          <ul class="footer__links">
-            <li><a href="#about">Trayectoria </a></li>
-            <li><a href="#results">Pacientes</a></li>
-            <li><a href="#newsletter">Novedades</a></li>
-          </ul>
+        <div class="footer__links-grid">
+          <div class="footer__col">
+            <h4>Secciones</h4>
+            <ul>
+              <li><a href="#hero">Sobre Mí</a></li>
+              <li><a href="#about">Trayectoria</a></li>
+              <li><a href="#results">Pacientes</a></li>
+              <li><a href="#newsletter">Novedades</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -309,8 +242,10 @@
   </footer>
 
   <!-- ═══════════════════════════════════════════ -->
-  <!-- ADMIN DASHBOARD (HIDDEN MODAL)              -->
+  <!-- MODALES Y ELEMENTOS EMERGENTES              -->
   <!-- ═══════════════════════════════════════════ -->
+
+  <!-- Panel de Control Administrativo (Dashboard) -->
   <div class="admin-modal" id="admin-modal">
     <div class="admin-modal__content">
       <div class="admin-modal__header">
@@ -320,7 +255,6 @@
         </button>
       </div>
 
-      <!-- Dashboard Body -->
       <div class="admin-modal__body" id="admin-dashboard-body">
         <div class="admin-tabs">
           <button class="tab-btn active" data-tab="tab-new">Nueva Noticia</button>
@@ -328,140 +262,115 @@
         </div>
 
         <div class="tab-content" id="tab-new">
-          <form id="news-form" class="admin-form compact">
+          <form id="news-form" class="admin-news-form">
             <input type="hidden" id="news-id">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Título de la Noticia</label>
+                <input type="text" id="news-title" required placeholder="Escriba el título impactante...">
+              </div>
+              <div class="form-group">
+                <label>Categoría</label>
+                <select id="news-category">
+                  <option value="RENDIMIENTO">Rendimiento</option>
+                  <option value="NUTRICIÓN">Nutrición</option>
+                  <option value="SALUD">Salud</option>
+                  <option value="CIENCIA">Ciencia</option>
+                </select>
+              </div>
+            </div>
 
-            <!-- Nueva Zona de Imagen con Previsualización -->
+            <!-- Zona de Imagen con Previsualización Técnica -->
             <div class="news-image-zone">
-              <div class="news-image-preview" id="image-preview-container">
-                <img id="news-preview" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061"
-                  alt="Vista previa">
-                <div class="preview-overlay">
-                  <i class="fas fa-camera"></i>
-                </div>
+              <div class="news-image-preview">
+                <img id="news-preview" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Previo">
               </div>
-              <div class="news-image-controls">
-                <label for="news-file" class="btn-upload">
-                  <i class="fas fa-upload"></i> SUBIR FOTO
+              <div class="news-image-inputs">
+                <label class="btn-upload">
+                  <i class="fas fa-cloud-upload-alt"></i> SUBIR FOTO (3:4)
+                  <input type="file" id="news-file" accept="image/*" hidden>
                 </label>
-                <input type="file" id="news-file" accept="image/*" hidden>
-                <input type="url" id="news-image" placeholder="URL de la imagen">
+                <span class="file-divider">O RECURSO EXTERNO</span>
+                <input type="url" id="news-image" placeholder="Pegar URL de imagen pública">
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="form__group">
-                <label for="news-title">Título de la noticia</label>
-                <input type="text" id="news-title" required placeholder="Ej: Nueva Certificación Master">
-              </div>
-              <div class="form__group">
-                <label for="news-category">Categoría</label>
-                <div class="custom-select-wrapper">
-                  <select id="news-category">
-                    <option value="NUTRICIÓN">NUTRICIÓN</option>
-                    <option value="EVENTOS">EVENTOS</option>
-                    <option value="RENDIMIENTO">RENDIMIENTO</option>
-                    <option value="EQUIPO">EQUIPO</option>
-                    <option value="TIPS">TIPS</option>
-                  </select>
-                </div>
-              </div>
+            <div class="form-group">
+              <label>Contenido</label>
+              <textarea id="news-content" rows="4" required placeholder="Desarrolle el contenido científico..."></textarea>
             </div>
-
-            <div class="form__group">
-              <label for="news-content">Contenido / Descripción</label>
-              <textarea id="news-content" rows="3" required
-                placeholder="Escribe aquí el detalle de la noticia..."></textarea>
-            </div>
-
-            <div class="admin-form__actions">
-              <button type="submit" class="btn btn--cta" id="save-news">GUARDAR PUBLICACIÓN</button>
-            </div>
+            <button type="submit" class="btn btn--cta btn--full" id="save-news">GUARDAR PUBLICACIÓN</button>
           </form>
         </div>
 
         <div class="tab-content hidden" id="tab-list">
           <div class="admin-news-list" id="admin-news-list">
-            <!-- La lista de noticias se cargará aquí -->
+            <!-- La lista se carga dinámicamente -->
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- BOOKING MODAL (POPUP SELECTION)             -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- Modal de Agendamiento (Selector Presencial/Online) -->
   <div class="booking-modal" id="booking-modal">
-    <div class="booking-modal__overlay" id="booking-overlay"></div>
-    <div class="booking-modal__content">
-      <button class="booking-modal__close" id="booking-close">&times;</button>
-
+    <div class="booking-overlay" id="booking-overlay"></div>
+    <div class="booking-modal__content reveal-up">
+      <button class="booking-modal__close" id="booking-close">
+        <i class="fas fa-times"></i>
+      </button>
       <div class="booking-modal__header">
-        <h2 class="modal-title">¿Cómo prefieres tu <span class="accent-purple">consulta?</span></h2>
-        <p class="modal-subtitle">Selecciona la modalidad de atención que mejor se adapte a ti.</p>
+        <span class="chip-outline">SISTEMA DE CITAS</span>
+        <h2 class="modal-title">ELEGIR <span class="accent-color">MODALIDAD</span></h2>
+        <p>Selecciona cómo prefieres realizar tu consulta nutricional de élite.</p>
       </div>
 
-      <div class="booking-options">
-        <!-- Opción Concepción -->
-        <a href="https://agendamiento.reservo.cl/makereserva/agenda/r0YY3B80q0WLx37v2S551si8K2v0lV" class="booking-card"
-          target="_blank">
+      <div class="booking-grid">
+        <!-- Opción Presencial -->
+        <a href="https://www.doctoralia.cl/enzo-escobar-gonzalez/nutricionista/providencia#profile-pricing" 
+           target="_blank" class="booking-card">
           <div class="booking-card__icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-clinic-medical"></i>
           </div>
           <div class="booking-card__info">
-            <h3 class="booking-card__title">PRESENCIAL CONCEPCIÓN</h3>
-            <p class="booking-card__desc">Chacabuco 924-b, Concepción (Biobío)</p>
+            <h3 class="booking-card__title">ATENCIÓN PRESENCIAL</h3>
+            <p class="booking-card__desc">Clínica MEDS / Consulta Providencia.</p>
+            <span class="booking-card__address">CHILE, SANTIAGO.</span>
           </div>
-          <i class="fas fa-arrow-right booking-card__arrow"></i>
-        </a>
-
-        <!-- Opción Chillán -->
-        <a href="https://api.whatsapp.com/send/?phone=56934281654&text&type=phone_number&app_absent=0"
-          class="booking-card" target="_blank">
-          <div class="booking-card__icon">
-            <i class="fas fa-home"></i>
-          </div>
-          <div class="booking-card__info">
-            <h3 class="booking-card__title">A DOMICILIO CHILLÁN</h3>
-            <p class="booking-card__desc">Atención personalizada en tu hogar (Zona Chillán)</p>
-          </div>
-          <i class="fas fa-arrow-right booking-card__arrow"></i>
+          <i class="fas fa-chevron-right booking-card__arrow"></i>
         </a>
 
         <!-- Opción Online -->
-        <a href="https://api.whatsapp.com/send/?phone=56934281654&text&type=phone_number&app_absent=0"
-          class="booking-card" target="_blank">
+        <a href="https://www.doctoralia.cl/enzo-escobar-gonzalez/nutricionista/providencia#profile-pricing" 
+           target="_blank" class="booking-card booking-card--primary">
           <div class="booking-card__icon">
             <i class="fas fa-laptop-medical"></i>
           </div>
           <div class="booking-card__info">
-            <h3 class="booking-card__title">CONSULTA ONLINE</h3>
-            <p class="booking-card__desc">Desde cualquier lugar a través de videollamada</p>
+            <h3 class="booking-card__title">ATENCIÓN ONLINE</h3>
+            <p class="booking-card__desc">Asesoría remota para todo Chile y el extranjero.</p>
+            <span class="booking-card__address">VÍA VIDEOCONFERENCIA (HD).</span>
           </div>
-          <i class="fas fa-arrow-right booking-card__arrow"></i>
+          <i class="fas fa-chevron-right booking-card__arrow"></i>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <!-- Modal de Alertas Pro (Bubble) -->
+  <!-- Alertas Personalizadas (Burbujas de notificación) -->
   <div class="custom-alert-overlay" id="custom-alert">
     <div class="custom-alert-bubble">
       <div class="alert-body">
-        <p id="alert-message">¿Estás seguro de eliminar esta publicación?</p>
+        <p id="alert-message"></p>
       </div>
       <div class="alert-actions">
-        <button class="btn-alert btn-alert--confirm" id="btn-alert-confirm">Aceptar</button>
-        <button class="btn-alert btn-alert--cancel" id="btn-alert-cancel">Cancelar</button>
+        <button id="btn-alert-cancel" class="btn-alert btn-alert--cancel">Cancelar</button>
+        <button id="btn-alert-confirm" class="btn-alert btn-alert--confirm">Aceptar</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- LOGIN BUBBLE (MODAL)                        -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- Burbuja de Login Seguro (Se activa con Shift + N) -->
   <div class="login-bubble-overlay" id="login-bubble-overlay">
     <div class="login-bubble">
       <div class="login-bubble__header">
@@ -479,6 +388,7 @@
     </div>
   </div>
 
+  <!-- Scripts:newsService debe ir primero o importado como módulo -->
   <script src="newsService.js"></script>
   <script type="module" src="main.js"></script>
 </body>

@@ -1,20 +1,26 @@
 /* ══════════════════════════════════════════════════════════════
    Enzo Escobar — Main JavaScript
-   Interacciones, animaciones y funcionalidad de la landing page.
+   Este archivo maneja todas las interacciones visuales, 
+   animaciones de scroll y la lógica principal de la interfaz.
    ══════════════════════════════════════════════════════════════ */
 
 import { initNewsManager } from './newsManager.js';
 
+// Punto de entrada: Inicialización de todos los módulos cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', () => {
-  initNavigation();
-  initScrollReveal();
-  initCounterAnimation();
-  initSmoothScroll();
-  initNewsManager();
-  initBookingModal();
+  initNavigation();      // Manejo del menú y barra de navegación
+  initScrollReveal();    // Animaciones de aparición al hacer scroll
+  initCounterAnimation(); // Animación de números crecientes (Estadísticas)
+  initSmoothScroll();    // Desplazamiento suave entre secciones
+  initNewsManager();     // Lógica del carrusel de noticias y panel admin
+  initBookingModal();    // Manejo del modal de agendamiento clínico
 });
 
 /* ─── NAVEGACIÓN ────────────────────────────────────────────── */
+/**
+ * Controla el comportamiento de la barra de navegación superior 
+ * y el menú lateral móvil.
+ */
 function initNavigation() {
   const nav = document.getElementById('nav');
   const toggle = document.getElementById('nav-toggle');
@@ -22,7 +28,8 @@ function initNavigation() {
   const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta');
   const mobileClose = document.getElementById('mobile-close');
 
-  // Scroll → cambiar fondo del nav
+  // Evento de Scroll: Cambia el fondo del nav al bajar más de 50px
+  // Esto permite que el nav sea transparente arriba y sólido al navegar.
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       nav.classList.add('scrolled');
@@ -31,15 +38,16 @@ function initNavigation() {
     }
   }, { passive: true });
 
-  // Toggle menú móvil
+  // Gestión del Menú Móvil (Apertura/Cierre)
   if (toggle && mobileMenu) {
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      // Bloqueamos el scroll del cuerpo cuando el menú está abierto
       document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
 
-    // Cerrar menú al hacer clic en un enlace
+    // Cierre automático al hacer clic en cualquier enlace del menú móvil
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
@@ -48,7 +56,7 @@ function initNavigation() {
       });
     });
 
-    // Cerrar menú al hacer clic en el botón de cerrar
+    // Botón de cerrar explícito en el menú móvil
     if (mobileClose) {
       mobileClose.addEventListener('click', () => {
         toggle.classList.remove('active');
@@ -60,14 +68,19 @@ function initNavigation() {
 }
 
 /* ─── SCROLL REVEAL ─────────────────────────────────────────── */
+/**
+ * Utiliza el IntersectionObserver para detectar cuándo los elementos 
+ * entran en pantalla y aplicarles una animación de aparición (fade up).
+ */
 function initScrollReveal() {
   const elements = document.querySelectorAll('.reveal-up');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      // Si el elemento es visible al menos en un 10%, activamos la animación
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target); // Dejamos de observar una vez animado
       }
     });
   }, {
@@ -78,7 +91,11 @@ function initScrollReveal() {
   elements.forEach(el => observer.observe(el));
 }
 
-/* ─── COUNTER ANIMATION ────────────────────────────────────── */
+/* ─── ANIMACIÓN DE CONTADORES ────────────────────────────────────── */
+/**
+ * Anima los números desde 0 hasta su valor objetivo definido 
+ * en el atributo data-target del HTML.
+ */
 function initCounterAnimation() {
   const counters = document.querySelectorAll('[data-target]');
 
@@ -89,16 +106,21 @@ function initCounterAnimation() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.5 }); // Inicia cuando el 50% de la sección es visible
 
   counters.forEach(counter => observer.observe(counter));
 }
 
+/**
+ * Función auxiliar para realizar el cálculo matemático de la animación suave
+ * utiliza una función de ease-out para que el final sea más lento y natural.
+ */
 function animateCounter(element) {
   const target = parseInt(element.dataset.target, 10);
-  const duration = 2000;
+  const duration = 2000; // Duración total en milisegundos (2 segundos)
   const startTime = performance.now();
 
+  // Función matemática para suavizado Quartz
   function easeOutQuart(t) {
     return 1 - Math.pow(1 - t, 4);
   }
@@ -119,13 +141,17 @@ function animateCounter(element) {
   requestAnimationFrame(update);
 }
 
-/* ─── MODAL DE AGENDAMIENTO ─────────────────────────────────── */
+/* ─── MODAL DE AGENDAMIENTO CLINICO ─────────────────────────────────── */
+/**
+ * Gestiona el modal donde los pacientes pueden elegir agendar presencialmente 
+ * u online. Incluye lógica de bloqueo de scroll y atajos de teclado.
+ */
 function initBookingModal() {
   const modal = document.getElementById('booking-modal');
   const closeBtn = document.getElementById('booking-close');
   const overlay = document.getElementById('booking-overlay');
   
-  // Seleccionamos todos los botones que dicen "AGENDAR HORA"
+  // Identificamos todos los botones de CTA que activan el agendamiento
   const triggers = Array.from(document.querySelectorAll('.btn')).filter(btn => 
     btn.textContent.trim().toUpperCase().includes('AGENDAR HORA')
   );
@@ -133,7 +159,7 @@ function initBookingModal() {
   const openModal = (e) => {
     if (e) e.preventDefault();
     
-    // Primero hacemos scroll a la parte superior (Sobre Mí)
+    // Al abrir el modal, llevamos la vista suavemente arriba para centrar la atención
     const heroSection = document.getElementById('hero');
     if (heroSection) {
       window.scrollTo({
@@ -142,7 +168,6 @@ function initBookingModal() {
       });
     }
 
-    // Abrimos el modal
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   };
@@ -159,7 +184,7 @@ function initBookingModal() {
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (overlay) overlay.addEventListener('click', closeModal);
 
-  // Cerrar con tecla ESC
+  // Cierre intuitivo con la tecla ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       closeModal();
@@ -167,7 +192,11 @@ function initBookingModal() {
   });
 }
 
-/* ─── SMOOTH SCROLL ─────────────────────────────────────────── */
+/* ─── SCROLL SUAVE (SMOOTH SCROLL) ────────────────────────────── */
+/**
+ * Reemplaza el salto brusco de los enlaces anclados (#header, #about, etc)
+ * por un desplazamiento fluido calculando el offset del navbar.
+ */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -178,14 +207,12 @@ function initSmoothScroll() {
       if (target) {
         e.preventDefault();
 
+        // Calculamos la altura del nav para que no tape el título de la sección
         const navHeight = document.getElementById('nav').offsetHeight;
         const targetTop = target.getBoundingClientRect().top + window.scrollY;
         
-        // NUEVO SISTEMA: Solo resta navHeight + 24px de margen
-        // Sin centrado complejo que desplaza demasiado
+        // Offset final: Posición del título - altura del nav - margen extra de aire
         const targetPos = targetTop - navHeight - 24;
-
-
 
         window.scrollTo({
           top: targetPos,

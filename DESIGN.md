@@ -1,82 +1,82 @@
-# Design System Strategy: The Kinetic Performance Lab
+# Estrategia del Sistema de Diseño: El Laboratorio de Rendimiento Kinético
 
-## 1. Overview & Creative North Star
-The "Kinetic Performance Lab" is a high-end design system tailored for elite sports nutrition. It moves beyond the generic "wellness" aesthetic into a space of **Hyper-Performance Editorial**. This system is defined by its architectural depth, high-contrast energy, and technical precision.
+## 1. Visión General y Norte Creativo
+El "Laboratorio de Rendimiento Kinético" es un sistema de diseño de alta gama adaptado para la nutrición deportiva de élite. Se aleja de la estética genérica de "bienestar" para entrar en un espacio de **Editorial de Hiper-Rendimiento**. Este sistema se define por su profundidad arquitectónica, energía de alto contraste y precisión técnica.
 
-**Creative North Star: The Precision Catalyst**
-The layout should feel like a high-performance instrument—authoritative yet breathable. We achieve this by breaking the traditional container grid with intentional asymmetry, where high-quality professional imagery overlaps "floating" UI elements. This creates a sense of kinetic movement, mimicking the athlete's journey.
-
----
-
-## 2. Colors: Tonal Depth & High-Voltage Accents
-This system utilizes a "Deep Tech" foundation to allow vibrant accents to pop with maximum perceived luminance.
-
-### Color Palette Reference
-- **Background (`#0e0e0e`):** The absolute foundation. A deep charcoal that provides infinite depth.
-- **Primary / Lime Accent (`#f3ffca` & `#cafd00`):** Used for performance metrics, high-value highlights, and progress indicators.
-- **Tertiary / Magenta-Purple (`#e575ff`):** Reserved exclusively for conversion-driven Calls to Action (CTAs). This creates a psychological "trigger" color distinct from the informational lime green.
-
-### The "No-Line" Rule
-**Explicit Instruction:** Do not use 1px solid borders to separate sections. Structure must be defined through background color shifts.
-- A section resting on `surface` might transition into a `surface-container-low` (`#131313`) section to denote a change in topic.
-- Use wide gutters (Spacing Scale `20` or `24`) to let the background provide the boundary.
-
-### Glassmorphism & Signature Textures
-To achieve a premium, custom feel:
-- **Glass Floating Elements:** Use `surface-variant` (`#262626`) at 60% opacity with a `backdrop-filter: blur(20px)`. This creates a "frosted" layer that feels integrated into the professional photography behind it.
-- **Tonal Soul:** Apply a subtle radial gradient on Hero CTAs from `tertiary` (`#e575ff`) to `tertiary-container` (`#dd5efc`) at a 45-degree angle. This adds "weight" and professional polish that flat hex codes lack.
+**Norte Creativo: El Catalizador de Precisión**
+El diseño debe sentirse como un instrumento de alto rendimiento: autoritario pero con aire. Logramos esto rompiendo la cuadrícula tradicional con una asimetría intencional, donde imágenes profesionales de alta calidad se superponen a elementos de la interfaz "flotantes". Esto crea una sensación de movimiento kinético, imitando el viaje del atleta.
 
 ---
 
-## 3. Typography: Editorial Authority
-We use a high-contrast pairing: **Space Grotesk** for structural authority and **Inter** for technical clarity.
+## 2. Colores: Profundidad Tonal y Acentos de Alto Voltaje
+Este sistema utiliza una base de "Tecnología Profunda" (Deep Tech) para permitir que los acentos vibrantes resalten con la máxima luminancia percibida.
 
-- **Display & Headlines (Space Grotesk):** These are your "hook" elements. Use `display-lg` (3.5rem) with tight letter-spacing (-0.02em) for hero headlines. The geometric nature of Space Grotesk mirrors the precision of nutritional science.
-- **Body & Labels (Inter):** All technical data, ingredient lists, and descriptions use Inter. It is the "workhorse" that ensures high readability against the dark `surface`.
-- **Typographic Intent:** Use `primary` (`#f3ffca`) for high-level labels (like "NUTRITIONIST UDD") to draw the eye, while keeping body text in `secondary` (`#e5e2e1`) for comfortable long-form reading.
+### Referencia de la Paleta de Colores
+- **Fondo (`#0e0e0e`):** La base absoluta. Un carbón profundo que proporciona una profundidad infinita.
+- **Primario / Acento Lima (`#f3ffca` y `#cafd00`):** Usado para métricas de rendimiento, resaltados de alto valor e indicadores de progreso.
+- **Terciario / Magenta-Púrpura (`#e575ff`):** Reservado exclusivamente para Llamados a la Acción (CTAs) orientados a la conversión. Esto crea un "disparador" psicológico de color distinto del verde lima informativo.
 
----
+### La Regla de "No Líneas"
+**Instrucción Explícita:** No utilizar bordes sólidos de 1px para separar secciones. La estructura debe definirse a través de cambios en el color de fondo.
+- Una sección sobre `surface` puede transicionar a una sección `surface-container-low` (`#131313`) para denotar un cambio de tema.
+- Usar márgenes amplios (Escala de Espaciado `20` o `24`) para dejar que el fondo proporcione el límite.
 
-## 4. Elevation & Depth: Tonal Layering
-Traditional drop shadows are forbidden. We create depth through the **Layering Principle**.
-
-- **Surface Stack:** Place a `surface-container-highest` (`#262626`) card on top of a `surface-container-low` (`#131313`) section. The shift in hex value creates a natural "lift" without the clutter of shadows.
-- **Ambient Shadows:** If an element must "float" (e.g., a floating appointment card), use a shadow color tinted with the primary hue: `rgba(243, 255, 202, 0.05)` with a 40px blur. This mimics the glow of a high-end gym monitor.
-- **The "Ghost Border":** For card containment, use the `outline-variant` token at **15% opacity**. This creates a "suggestion" of a boundary that is only visible upon focused inspection, maintaining a minimalist aesthetic.
-
----
-
-## 5. Components
-
-### Buttons
-- **Primary CTA (The Conversion Trigger):** Uses `tertiary`. Pill-shaped (Roundedness `full`). These must stand out as the most important action.
-- **Secondary (The Information Action):** Uses `primary-container` (`#cafd00`) with `on-primary-container` text. Used for "Learn More" or "View Program."
-- **Ghost (The Subtle Choice):** `outline-variant` ghost border with `on-surface` text.
-
-### Cards
-Cards must never have dividers.
-- **Structure:** Use `surface-container` with Roundedness `xl` (0.75rem).
-- **Separation:** Content inside cards is separated by `spacing-5` (1.7rem) of whitespace.
-- **Circular Elements:** Incorporate circular image masks for the nutritionist's portrait or ingredient macros to break the "square" monotony of cards.
-
-### Input Fields
-- **Default State:** `surface-container-high` background with a subtle "Ghost Border."
-- **Focus State:** Border transitions to 100% opacity `primary` (`#f3ffca`) with a soft outer glow.
-- **Error State:** Use `error_dim` (`#d53d18`) text with an `error` border.
-
-### Performance Chips
-- Small, `full` rounded chips used for tags like "High Protein" or "Performance." Use `surface-bright` with `on-surface-variant` text.
+### Glassmorphism y Texturas de Firma
+Para lograr una sensación premium y personalizada:
+- **Elementos Flotantes de Cristal:** Usar `surface-variant` (`#262626`) al 60% de opacidad con un `backdrop-filter: blur(20px)`. Esto crea una capa "esmerilada" que se siente integrada en la fotografía profesional detrás de ella.
+- **Alma Tonal:** Aplicar un degradado radial sutil en los CTAs del Hero desde `tertiary` (`#e575ff`) hasta `tertiary-container` (`#dd5efc`) en un ángulo de 45 grados. Esto añade "peso" y un acabado profesional que los códigos hex planos carecen.
 
 ---
 
-## 6. Do's and Don'ts
+## 3. Tipografía: Autoridad Editorial
+Utilizamos un emparejamiento de alto contraste: **Space Grotesk** para la autoridad estructural e **Inter** para la claridad técnica.
 
-### Do
-- **Do** use asymmetric image placement. Allow a high-res photo of an athlete to "break" the top edge of a card.
-- **Do** use `primary` lime green for data points (e.g., "98% Success Rate") to make them vibrate against the black.
-- **Do** lean into white space. If you think there is enough space, add one more level from the spacing scale.
+- **Pantalla y Títulos (Space Grotesk):** Estos son tus elementos "gancho". Usa `display-lg` (3.5rem) con un espaciado entre letras ajustado (-0.02em) para los títulos principales. La naturaleza geométrica de Space Grotesk refleja la precisión de la ciencia nutricional.
+- **Cuerpo y Etiquetas (Inter):** Todos los datos técnicos, listas de ingredientes y descripciones usan Inter. Es el "caballo de batalla" que asegura una alta legibilidad contra la superficie oscura.
+- **Intención Tipográfica:** Usar `primary` (`#f3ffca`) para etiquetas de alto nivel (como "NUTRITIONIST UDD") para atraer la mirada, mientras se mantiene el texto del cuerpo en `secondary` (`#e5e2e1`) para una lectura cómoda de largo formato.
 
-### Don't
-- **Don't** use 100% white (`#ffffff`) for long body text; it causes "halation" (eye strain) on dark backgrounds. Use `secondary` (`#e5e2e1`).
-- **Don't** use standard "Drop Shadows." They look muddy on deep charcoal backgrounds. Use tonal layering or ambient glows.
-- **Don't** use sharp corners. Sports nutrition is about the body; use the `lg` to `xl` roundedness scale to keep the UI feeling ergonomic and human.
+---
+
+## 4. Elevación y Profundidad: Capas Tonales
+Los sombreados tradicionales están prohibidos. Creamos profundidad a través del **Principio de Capas**.
+
+- **Pila de Superficies:** Colocar una tarjeta `surface-container-highest` (`#262626`) sobre una sección `surface-container-low` (`#131313`). El cambio en el valor hexadecimal crea una "elevación" natural sin el desorden de las sombras.
+- **Sombras Ambientales:** Si un elemento debe "flotar" (ej: una tarjeta de cita flotante), usar un color de sombra teñido con el tono primario: `rgba(243, 255, 202, 0.05)` con un desenfoque de 40px. Esto imita el brillo de un monitor de gimnasio de alta gama.
+- **El "Borde Fantasma":** Para la contención de tarjetas, usar el token `outline-variant` al **15% de opacidad**. Esto crea una "sugerencia" de límite que solo es visible tras una inspección enfocada, manteniendo una estética minimalista.
+
+---
+
+## 5. Componentes
+
+### Botones
+- **CTA Primario (El Disparador de Conversión):** Usa `tertiary`. Forma de píldora (Redondez `full`). Estos deben destacar como la acción más importante.
+- **Secundario (La Acción Informativa):** Usa `primary-container` (`#cafd00`) con texto `on-primary-container`. Usado para "Saber más" o "Ver Programa".
+- **Fantasma (La Opción Sutil):** Borde fantasma `outline-variant` con texto `on-surface`.
+
+### Tarjetas
+Las tarjetas nunca deben tener divisores.
+- **Estructura:** Usar `surface-container` con Redondez `xl` (0.75rem).
+- **Separación:** El contenido dentro de las tarjetas se separa por `spacing-5` (1.7rem) de espacio en blanco.
+- **Elementos Circulares:** Incorporar máscaras de imagen circulares para el retrato del nutricionista o macros de ingredientes para romper la monotonía "cuadrada" de las tarjetas.
+
+### Campos de Entrada
+- **Estado por Defecto:** Fondo `surface-container-high` con un sutil "Borde Fantasma".
+- **Estado de Foco:** El borde transiciona a `primary` (`#f3ffca`) al 100% de opacidad con un suave brillo exterior.
+- **Estado de Error:** Usar texto `error_dim` (`#d53d18`) con un borde de `error`.
+
+### Chips de Rendimiento
+- Chips pequeños con redondez `full` usados para etiquetas como "Alto en Proteínas" o "Rendimiento". Usar `surface-bright` con texto `on-surface-variant`.
+
+---
+
+## 6. Qué hacer y Qué no hacer
+
+### Qué hacer
+- **Hacer** uso de la colocación asimétrica de imágenes. Permitir que una foto de alta resolución de un atleta "rompa" el borde superior de una tarjeta.
+- **Hacer** uso del verde lima `primary` para puntos de datos (ej: "98% Tasa de Éxito") para que vibren contra el negro.
+- **Hacer** énfasis en el espacio en blanco. Si crees que hay suficiente espacio, añade un nivel más de la escala de espaciado.
+
+### Qué no hacer
+- **No** usar blanco 100% (`#ffffff`) para texto largo del cuerpo; causa fatiga visual en fondos oscuros. Usar `secondary` (`#e5e2e1`).
+- **No** usar "Sombras Paralelas" estándar. Se ven sucias en fondos de carbón profundo. Usar capas tonales o brillos ambientales.
+- **No** usar esquinas afiladas. La nutrición deportiva trata sobre el cuerpo; usa la escala de redondez `lg` a `xl` para que la interfaz se sienta ergonómica y humana.

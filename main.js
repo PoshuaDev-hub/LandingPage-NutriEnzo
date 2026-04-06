@@ -5,9 +5,11 @@
 
 import { initNewsManager } from './newsManager.js';
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 document.addEventListener('DOMContentLoaded', () => {
   inject(); // Inicializa Vercel Analytics
+  injectSpeedInsights(); // Inicializa Vercel Speed Insights
   initNavigation();
   initScrollReveal();
   initCounterAnimation();

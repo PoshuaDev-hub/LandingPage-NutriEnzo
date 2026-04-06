@@ -87,20 +87,21 @@ export function initNewsManager() {
   
   let currentIndex = 0;
   let autoPlayInterval;
+  let newsData = []; // Caché de datos para respuesta instantánea
   const AUTO_PLAY_TIME = 60000; 
 
   // ─── CAROUSEL LOGIC ─────────────────────────────────────────
   
   async function renderCarousel() {
-    const news = await newsService.getAll();
+    newsData = await newsService.getAll();
     if (!carousel) return;
 
-    if (news.length === 0) {
+    if (newsData.length === 0) {
       carousel.innerHTML = '<p style="text-align:center; width:100%;">No hay noticias disponibles.</p>';
       return;
     }
 
-    carousel.innerHTML = news.map(item => `
+    carousel.innerHTML = newsData.map(item => `
       <div class="news-card">
         <img src="${item.image_url || 'https://images.unsplash.com/photo-1490645935967-10de6ba17061'}" alt="${item.title}" class="news-card__image">
         <div class="news-card__content">
@@ -116,14 +117,15 @@ export function initNewsManager() {
       </div>
     `).join('');
 
-    dotsContainer.innerHTML = news.map((_, i) => `
+    dotsContainer.innerHTML = newsData.map((_, i) => `
       <div class="dot ${i === currentIndex ? 'active' : ''}" data-index="${i}"></div>
     `).join('');
 
-    updateCarousel(news.length);
+    updateCarousel();
   }
 
-  function updateCarousel(count) {
+  function updateCarousel() {
+    const count = newsData.length;
     if (!count) return;
     if (currentIndex >= count) currentIndex = 0;
     if (currentIndex < 0) currentIndex = count - 1;
@@ -133,17 +135,15 @@ export function initNewsManager() {
     });
   }
 
-  async function nextSlide() {
-    const news = await newsService.getAll();
+  function nextSlide() {
     currentIndex++;
-    updateCarousel(news.length);
+    updateCarousel();
     resetAutoPlay();
   }
 
-  async function prevSlide() {
-    const news = await newsService.getAll();
+  function prevSlide() {
     currentIndex--;
-    updateCarousel(news.length);
+    updateCarousel();
     resetAutoPlay();
   }
 

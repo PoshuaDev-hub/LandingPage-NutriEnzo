@@ -4,8 +4,10 @@
    ══════════════════════════════════════════════════════════════ */
 
 import { initNewsManager } from './newsManager.js';
+import { inject } from '@vercel/analytics';
 
 document.addEventListener('DOMContentLoaded', () => {
+  inject(); // Inicializa Vercel Analytics
   initNavigation();
   initScrollReveal();
   initCounterAnimation();

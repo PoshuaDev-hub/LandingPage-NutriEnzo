@@ -214,7 +214,8 @@ button {
 }
 
 .nav__link:hover {
-  color: var(--on-surface);
+  color: var(--primary-lime);
+  text-shadow: 0 0 10px rgba(202, 253, 0, 0.5);
 }
 
 .nav__social {
@@ -248,9 +249,11 @@ button {
 
 .nav__toggle {
   display: none;
-  background: rgba(10, 10, 10, 0.7); /* Cristal profundo */
+  background: rgba(10, 10, 10, 0.7);
+  /* Cristal profundo */
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Borde sutil de luz */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Borde sutil de luz */
   border-radius: 99px;
   padding: 0.55rem 1.4rem;
   cursor: pointer;
@@ -286,9 +289,11 @@ button {
 
 .toggle-text {
   font-family: var(--font-display);
-  font-size: 0.65rem; /* Más pequeño para un look técnico */
+  font-size: 0.65rem;
+  /* Más pequeño para un look técnico */
   font-weight: 800;
-  letter-spacing: 0.18em; /* Espaciado amplio de élite */
+  letter-spacing: 0.18em;
+  /* Espaciado amplio de élite */
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -655,8 +660,10 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 180px; /* Altura consistente con la de Rendimiento */
-  padding: var(--space-8); /* Padding generoso como en la referencia */
+  min-height: 180px;
+  /* Altura consistente con la de Rendimiento */
+  padding: var(--space-8);
+  /* Padding generoso como en la referencia */
 }
 
 .stat-box--lime .stat-box__content {
@@ -668,7 +675,8 @@ button {
 
 .stat-box--lime .stat-box__number {
   color: #fff;
-  font-size: 2.2rem; /* Tamaño equilibrado para caber bien */
+  font-size: 2.2rem;
+  /* Tamaño equilibrado para caber bien */
   font-weight: 800;
   line-height: 1;
 }
@@ -730,7 +738,8 @@ button {
   top: -5%;
   right: -5%;
   font-size: 16rem;
-  color: #a855f7; /* Morado sutil */
+  color: #a855f7;
+  /* Morado sutil */
   opacity: 0.12;
   pointer-events: none;
   transform: rotate(-5deg);
@@ -738,7 +747,8 @@ button {
 
 .new.stat-box__number {
   font-family: var(--font-display);
-  font-size: 3.5rem; /* Tamaño base */
+  font-size: 3.5rem;
+  /* Tamaño base */
   font-weight: 800;
   line-height: 1;
   color: #fff;
@@ -747,7 +757,8 @@ button {
 }
 
 .stat-box--big .stat-box__number {
-  font-size: 5rem; /* Resaltando el +2000 significativamente */
+  font-size: 5rem;
+  /* Resaltando el +2000 significativamente */
   color: var(--primary-lime);
   text-shadow: 0 0 30px rgba(182, 255, 0, 0.2);
 }
@@ -913,7 +924,8 @@ button {
   padding: 0 var(--space-8);
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--space-6); /* Reducido de 16 a 6 para compactar */
+  margin-bottom: var(--space-6);
+  /* Reducido de 16 a 6 para compactar */
 }
 
 .footer__brand {
@@ -983,6 +995,7 @@ button {
 
 .footer__links a:hover {
   color: var(--primary-lime);
+  text-shadow: 0 0 10px rgba(202, 253, 0, 0.4);
 }
 
 .footer__bottom {
@@ -1072,15 +1085,18 @@ button {
 
   /* Ajuste Ultra-Compacto Novedades */
   .newsletter {
-    padding: 1rem 0 3rem; /* Mucho menos aire arriba */
+    padding: 1rem 0 3rem;
+    /* Mucho menos aire arriba */
   }
 
   .newsletter__header {
-    margin-bottom: 0.5rem; /* Casi pegado al título */
+    margin-bottom: 0.5rem;
+    /* Casi pegado al título */
   }
 
   .newsletter__header .section-title {
-    font-size: 1.8rem !important; /* Más pequeño para iPhone */
+    font-size: 1.8rem !important;
+    /* Más pequeño para iPhone */
     margin-bottom: 0.25rem;
   }
 
@@ -1091,7 +1107,8 @@ button {
   }
 
   .news-card__content {
-    padding: 0.75rem 1.25rem; /* Super compacto */
+    padding: 0.75rem 1.25rem;
+    /* Super compacto */
   }
 
   .news-card__title {
@@ -1107,7 +1124,8 @@ button {
   }
 
   .newsletter__dots {
-    margin-top: 0.5rem; /* Pegados a la tarjeta */
+    margin-top: 0.5rem;
+    /* Pegados a la tarjeta */
   }
 
   /* Botones Purple Phantom */
@@ -1115,7 +1133,7 @@ button {
     display: flex;
     width: 100%;
     left: 0;
-    top: 35%; 
+    top: 35%;
     padding: 0 0.5rem;
     pointer-events: none;
     z-index: 10;
@@ -1124,7 +1142,8 @@ button {
   .carousel-btn {
     width: 38px;
     height: 38px;
-    background: rgba(229, 117, 255, 0.4); /* Moradito sutil más visible */
+    background: rgba(229, 117, 255, 0.4);
+    /* Moradito sutil más visible */
     backdrop-filter: blur(8px);
     border: 1px solid rgba(229, 117, 255, 0.6);
     color: #fff;
@@ -1237,7 +1256,8 @@ button {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
-  padding: 1.25rem 1.5rem; /* Ajustado para ser más compacto */
+  padding: 1.25rem 1.5rem;
+  /* Ajustado para ser más compacto */
   text-decoration: none;
   transition: all 0.3s var(--ease);
   position: relative;
@@ -1252,7 +1272,8 @@ button {
 }
 
 .booking-card__icon {
-  width: 52px; /* Tamaño equilibrado */
+  width: 52px;
+  /* Tamaño equilibrado */
   height: 52px;
   background: rgba(182, 255, 0, 0.1);
   border-radius: 14px;
@@ -1277,7 +1298,8 @@ button {
 
 .booking-card__title {
   font-family: var(--font-display);
-  font-size: 1.1rem; /* Un poco más pequeño */
+  font-size: 1.1rem;
+  /* Un poco más pequeño */
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.3rem;
@@ -1286,7 +1308,8 @@ button {
 }
 
 .booking-card__desc {
-  font-size: 0.9rem; /* Más grande */
+  font-size: 0.9rem;
+  /* Más grande */
   color: var(--on-surface-variant);
   line-height: 1.4;
   opacity: 0.8;
@@ -1317,7 +1340,7 @@ button {
   .booking-modal__content {
     padding: var(--space-6);
   }
-  
+
   .booking-card {
     padding: var(--space-4);
   }
@@ -1434,28 +1457,26 @@ button {
 
 .news-card {
   flex: 0 0 100%;
+  display: flex !important;
   background: var(--surface);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  min-height: 320px;
-  /* Reducido desde 400px */
   border: 1px solid var(--outline);
   transition: transform 0.3s var(--ease);
+  min-height: 300px;
 }
 
 .news-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 3 / 2;
+  flex: 0 0 40% !important;
+  max-width: 40% !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
   background: var(--surface-high);
 }
 
 .news-card__content {
+  flex: 1;
   padding: var(--space-8);
-  /* Reducido desde 12 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1467,7 +1488,9 @@ button {
   color: var(--primary-lime);
   margin-bottom: var(--space-2);
   text-transform: uppercase;
-} /* Ligeramente más pequeño */
+}
+
+/* Ligeramente más pequeño */
 
 .news-card__title {
   font-family: var(--font-display);
@@ -1481,14 +1504,51 @@ button {
 .news-card__text {
   color: var(--on-surface-variant);
   font-size: 0.9375rem;
-  /* Ligeramente más pequeño */
-  margin-bottom: var(--space-6);
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* En PC el texto fluye natural, en móvil se limitará para el botón */
+@media (max-width: 768px) {
+  .news-card__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.news-card__text.expanded {
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  display: block;
+}
+
+.btn-read-more {
+  display: none !important; /* Oculto por defecto en PC */
+  background: var(--cta-purple);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin-bottom: var(--space-4);
+  align-self: flex-start;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 4px 15px var(--cta-purple-glow);
+}
+
+.btn-read-more:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px var(--cta-purple-glow);
 }
 
 .news-card__footer {
@@ -1580,7 +1640,8 @@ button {
 .admin-modal__content {
   background: rgba(18, 18, 18, 0.85);
   width: 95%;
-  max-width: 500px; /* Compresión extrema solicitada */
+  max-width: 500px;
+  /* Compresión extrema solicitada */
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -1593,14 +1654,17 @@ button {
   background: rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
-  justify-content: center; /* Título centrado */
+  justify-content: center;
+  /* Título centrado */
   align-items: center;
-  position: relative; /* Para la X absoluta adentro */
+  position: relative;
+  /* Para la X absoluta adentro */
 }
 
 .admin-title-centered {
   font-family: var(--font-display);
-  font-size: 1.1rem; /* Un poco más pequeño y elegante */
+  font-size: 1.1rem;
+  /* Un poco más pequeño y elegante */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #fff;
@@ -1609,12 +1673,14 @@ button {
 }
 
 .admin-modal__close {
-  background: rgba(168, 85, 247, 0.1); /* Fondo morado sutil */
+  background: rgba(168, 85, 247, 0.1);
+  /* Fondo morado sutil */
   border: 1px solid rgba(168, 85, 247, 0.2);
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  color: #a855f7; /* Púrpura/Morado */
+  color: #a855f7;
+  /* Púrpura/Morado */
   font-size: 0.9rem;
   cursor: pointer;
   display: flex;
@@ -1623,19 +1689,22 @@ button {
   transition: all 0.4s var(--ease);
   position: absolute;
   right: 1.5rem;
-  top: 1.5rem; /* Ajuste de posición según referencia */
+  top: 1.5rem;
+  /* Ajuste de posición según referencia */
 }
 
 .admin-modal__close:hover {
   background: #a855f7;
   color: #fff;
-  transform: rotate(90deg); /* Animación de giro */
+  transform: rotate(90deg);
+  /* Animación de giro */
 }
 
 /* Zona de Imagen */
 .news-image-zone {
   display: grid;
-  grid-template-columns: 120px 1fr; /* Más espacio para la foto a la izquierda */
+  grid-template-columns: 120px 1fr;
+  /* Más espacio para la foto a la izquierda */
   align-items: center;
   gap: 1.25rem;
   background: rgba(255, 255, 255, 0.02);
@@ -1647,7 +1716,7 @@ button {
 
 .news-image-preview {
   position: relative;
-  width: 120px; 
+  width: 120px;
   aspect-ratio: 3 / 2;
   border-radius: 10px;
   overflow: hidden;
@@ -1695,7 +1764,8 @@ button {
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
-  padding: 0.5rem 1rem; /* Comprimido de arriba a abajo */
+  padding: 0.5rem 1rem;
+  /* Comprimido de arriba a abajo */
   border-radius: 8px;
   font-size: 0.7rem;
   font-weight: 700;
@@ -1707,7 +1777,8 @@ button {
 
 #news-image {
   margin-top: 0.4rem;
-  padding: 0.5rem 1rem; /* Igual de comprimido */
+  padding: 0.5rem 1rem;
+  /* Igual de comprimido */
   font-size: 0.8rem;
   border-radius: 8px;
 }
@@ -1740,13 +1811,16 @@ button {
 
 /* Estilos para las opciones del desplegable (Corrección de visibilidad) */
 .admin-form select option {
-  background-color: #121212; /* Fondo oscuro sólido */
-  color: #fff; /* Texto blanco */
+  background-color: #121212;
+  /* Fondo oscuro sólido */
+  color: #fff;
+  /* Texto blanco */
   padding: 10px;
 }
 
 .admin-modal__body {
-  padding: 1.25rem 1.75rem; /* Más compacto */
+  padding: 1.25rem 1.75rem;
+  /* Más compacto */
   max-height: 85vh;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -1836,7 +1910,8 @@ button {
 }
 
 .admin-form__actions .btn--cta {
-  padding: 0.6rem 2rem; /* Más chico aún */
+  padding: 0.6rem 2rem;
+  /* Más chico aún */
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   min-width: 150px;
@@ -1845,7 +1920,8 @@ button {
 
 .admin-form__actions {
   display: flex;
-  justify-content: center; /* Botón centrado */
+  justify-content: center;
+  /* Botón centrado */
   gap: 1rem;
   margin-top: 1rem;
   padding-top: 1rem;
@@ -1864,7 +1940,8 @@ button {
   border: none;
   width: 32px;
   height: 32px;
-  border-radius: 8px; /* Cuadrado redondeado para encajar con el estilo */
+  border-radius: 8px;
+  /* Cuadrado redondeado para encajar con el estilo */
   color: var(--on-surface-variant);
   font-size: 0.9rem;
   cursor: pointer;
@@ -1933,8 +2010,13 @@ button {
   transition: all 0.3s;
 }
 
-.action-btn--edit { color: var(--primary-lime); }
-.action-btn--delete { color: #ff4444; }
+.action-btn--edit {
+  color: var(--primary-lime);
+}
+
+.action-btn--delete {
+  color: #ff4444;
+}
 
 .action-btn:hover {
   background: #fff;
@@ -1950,11 +2032,13 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Un poco más oscuro para centrar la atención */
+  background: rgba(0, 0, 0, 0.6);
+  /* Un poco más oscuro para centrar la atención */
   backdrop-filter: blur(10px);
   z-index: 40000;
   display: none;
-  align-items: center; /* Centrado vertical absoluto */
+  align-items: center;
+  /* Centrado vertical absoluto */
   justify-content: center;
   padding: 1rem;
   animation: fadeIn 0.3s var(--ease);
@@ -1976,12 +2060,20 @@ button {
 }
 
 @keyframes bubblePop {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .alert-body {
-  padding: 2.5rem 2rem 1.5rem; /* Más aire para el mensaje */
+  padding: 2.5rem 2rem 1.5rem;
+  /* Más aire para el mensaje */
   text-align: center;
 }
 
@@ -1994,9 +2086,11 @@ button {
 
 .alert-actions {
   display: flex;
-  justify-content: center; /* Botones centrados simétricos */
+  justify-content: center;
+  /* Botones centrados simétricos */
   gap: 1rem;
-  padding: 0 2rem 2.5rem; /* Padding inferior alineado */
+  padding: 0 2rem 2.5rem;
+  /* Padding inferior alineado */
 }
 
 .btn-alert {
@@ -2011,7 +2105,8 @@ button {
 }
 
 .btn-alert--confirm {
-  background: #ff2d55; /* Rojo neón como en la foto */
+  background: #ff2d55;
+  /* Rojo neón como en la foto */
   color: #fff;
 }
 
@@ -2039,13 +2134,15 @@ button {
   }
 
   .news-card__image {
-    height: 250px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
   }
 }
 
 /* ─── OPTIMIZACIÓN RESPONSIVA (MAESTRA) ─────────────────────── */
 
 @media (max-width: 600px) {
+
   /* Dashboard Móvil */
   .admin-modal__content {
     max-width: 95%;
@@ -2057,11 +2154,13 @@ button {
   }
 
   .admin-title-centered {
-    font-size: 1.4rem; /* Título un poco más pequeño */
+    font-size: 1.4rem;
+    /* Título un poco más pequeño */
   }
 
   .title-extra {
-    display: none; /* Ocultar 'Publicaciones' en celular */
+    display: none;
+    /* Ocultar 'Publicaciones' en celular */
   }
 
   .admin-modal__body {
@@ -2079,7 +2178,8 @@ button {
 
   /* Zona de Imagen Apilada */
   .news-image-zone {
-    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-columns: 1fr;
+    /* Una sola columna */
     justify-items: center;
     text-align: center;
     gap: 1rem;
@@ -2104,11 +2204,13 @@ button {
 
   /* Ajuste Novedades Móvil */
   .newsletter {
-    padding-top: var(--space-8); /* Subir sección */
+    padding-top: var(--space-8);
+    /* Subir sección */
   }
 
   .news-card__content {
-    padding: 1rem 1.25rem; /* Más compacto */
+    padding: 1rem 1.25rem;
+    /* Más compacto */
   }
 
   .news-card__title {
@@ -2118,7 +2220,8 @@ button {
 
   .news-card__text {
     font-size: 0.85rem;
-    line-clamp: 2; /* Estándar */
+    line-clamp: 2;
+    /* Estándar */
     -webkit-line-clamp: 2;
     margin-bottom: 0.75rem;
   }
@@ -2129,7 +2232,8 @@ button {
     width: 100%;
     position: absolute;
     left: 0;
-    top: 35%; /* Centradas en la imagen */
+    top: 35%;
+    /* Centradas en la imagen */
     padding: 0 0.5rem;
     pointer-events: none;
     z-index: 10;
@@ -2166,12 +2270,14 @@ button {
   }
 
   .btn-alert {
-    flex: 1; /* Botones al 50% de ancho cada uno */
+    flex: 1;
+    /* Botones al 50% de ancho cada uno */
     padding: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
+
   /* Modal de Agendamiento Ultra-Compacto */
   .booking-modal__content {
     padding: 1.5rem 1rem;
@@ -2316,37 +2422,24 @@ button {
   filter: brightness(1.1);
 }
 
-/* Corrección de Relación de Aspecto 3:4 Tarjeta de Noticias */
-.news-card {
-  display: flex !important;
-  flex-direction: row !important;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  min-height: 320px !important;
-}
-
-.news-card__image {
-  flex: 0 0 450px !important; 
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  aspect-ratio: 3 / 2 !important;
-}
-
-.news-card__content {
-  flex: 1 !important;
-}
 
 @media (max-width: 768px) {
   .news-card {
+    display: flex !important;
     flex-direction: column !important;
     min-height: auto !important;
   }
+
   .news-card__image {
+    flex: none !important;
     width: 100% !important;
-    height: 350px !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .btn-read-more {
+    display: inline-flex !important; /* Visible solo en móvil */
   }
 }
 
@@ -2355,11 +2448,23 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes bubblePop {
-  from { opacity: 0; transform: scale(0.8) translateY(20px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

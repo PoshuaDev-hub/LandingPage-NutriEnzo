@@ -107,6 +107,7 @@ export function initNewsManager() {
           <span class="news-card__category">${item.category}</span>
           <h3 class="news-card__title">${item.title}</h3>
           <p class="news-card__text">${item.content}</p>
+          ${item.content.length > 100 ? `<button class="btn-read-more" onclick="this.previousElementSibling.classList.toggle('expanded'); this.textContent = this.previousElementSibling.classList.contains('expanded') ? 'Ver menos' : 'Leer más'">Leer más</button>` : ''}
           <div class="news-card__footer">
             <i class="far fa-calendar-alt"></i>
             <span>${new Date(item.created_at).toLocaleDateString()}</span>
@@ -126,7 +127,7 @@ export function initNewsManager() {
     if (!count) return;
     if (currentIndex >= count) currentIndex = 0;
     if (currentIndex < 0) currentIndex = count - 1;
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    carousel.style.transform = `translateX(calc(-${currentIndex} * (100% + var(--space-8))))`;
     document.querySelectorAll('.dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
